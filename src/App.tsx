@@ -23,6 +23,7 @@ interface Tutorial {
   difficulty: 'Beginner' | 'Intermediate' | 'Advanced'
   duration: string
   category: string
+  link: string
 }
 
 interface Tool {
@@ -309,42 +310,48 @@ function TutorialsPage() {
       description: "Learn the basics of JavaScript including variables, functions, and control structures.",
       difficulty: "Beginner",
       duration: "2 hours",
-      category: "Web Development"
+      category: "Web Development",
+      link: "/tutorials/javascript-fundamentals.html"
     },
     {
       title: "React Hooks Deep Dive",
       description: "Master React hooks including useState, useEffect, and custom hooks.",
       difficulty: "Intermediate",
       duration: "3 hours",
-      category: "React"
+      category: "React",
+      link: "/tutorials/react-hooks-deep-dive.html"
     },
     {
       title: "Python Data Science",
       description: "Introduction to data analysis and visualization with Python.",
       difficulty: "Beginner",
       duration: "4 hours",
-      category: "Data Science"
+      category: "Data Science",
+      link: "/tutorials/python-data-science.html"
     },
     {
       title: "Advanced TypeScript Patterns",
       description: "Learn advanced TypeScript features like conditional types and mapped types.",
       difficulty: "Advanced",
       duration: "5 hours",
-      category: "TypeScript"
+      category: "TypeScript",
+      link: "/tutorials/advanced-typescript-patterns.html"
     },
     {
       title: "Node.js API Development",
       description: "Build RESTful APIs with Node.js and Express.",
       difficulty: "Intermediate",
       duration: "6 hours",
-      category: "Backend"
+      category: "Backend",
+      link: "/tutorials/nodejs-api-development.html"
     },
     {
       title: "CSS Grid and Flexbox",
       description: "Master modern CSS layout techniques.",
       difficulty: "Beginner",
       duration: "2.5 hours",
-      category: "CSS"
+      category: "CSS",
+      link: "/tutorials/css-grid-flexbox.html"
     }
   ]
 
@@ -407,7 +414,11 @@ function TutorialsPage() {
                 <span className="text-sm text-muted-foreground">{tutorial.category}</span>
                 <span className="text-sm font-medium">{tutorial.duration}</span>
               </div>
-              <Button className="w-full mt-4" variant="outline">
+              <Button
+                className="w-full mt-4"
+                variant="outline"
+                onClick={() => window.open(tutorial.link, '_blank')}
+              >
                 Start Tutorial
               </Button>
             </CardContent>
